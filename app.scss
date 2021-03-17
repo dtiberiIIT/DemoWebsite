@@ -1,0 +1,60 @@
+@use "@material/theme" with (
+  $primary: #F88277,
+  $on-primary: #F5F5F5,
+  $secondary: #FEEDEB
+);
+@use "material-components-web/material-components-web";
+@use "@material/button/styles";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #FEEDEB;
+
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 1em auto auto auto auto auto;
+}
+
+%padding-container {
+  margin: 1em;
+}
+
+%gradient-top-border {
+  border-top: 1em solid;
+  border-image-source: linear-gradient(61deg, rgba(248,151,119,1) 0%, rgba(248,151,119,1) 19%, rgba(248,130,119,1) 58%, rgba(254,237,235,1) 100%);
+  border-image-slice: 1;
+}
+
+header {
+  @extend %gradient-top-border;
+  background-color: #E0E0E0;
+  grid-column: 2;
+  grid-row: 2;
+
+  h1 {
+    @extend %padding-container;
+    font-family: 'Antic Didone', helvetica, serif;
+    color: white;
+    font-size: 2em;
+    font-weight: bolder;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    button {
+      @extend %padding-container;
+    }
+  }
+}
+
+article {
+  p {
+    font-family: 'Open Sans', helvetica, sans-serif;
+  }
+}
+
+
