@@ -28,6 +28,10 @@ body {
   border-image-slice: 1;
 }
 
+%borderA {
+  border: 0.4em solid #F5F5F5;
+}
+
 header {
   @extend %gradient-top-border;
   background-color: #E0E0E0;
@@ -37,8 +41,8 @@ header {
   h1 {
     @extend %padding-container;
     font-family: 'Antic Didone', helvetica, serif;
-    color: white;
-    font-size: 2em;
+    color: #F88277;
+    font-size: 2.5em;
     font-weight: bolder;
   }
 
@@ -57,4 +61,85 @@ article {
   }
 }
 
+/* Slideshow container */
+* {box-sizing:border-box}
+.slideshow-container {
+  @extend %borderA;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+
+  img {
+    width: 40vw;
+    height: 28vw;
+  }
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2.5s;
+  animation-name: fade;
+  animation-duration: 2.5s; 
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
