@@ -69,25 +69,19 @@ article {
   margin-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
+  width: 40vw;
+  height: 28vw;
   position: relative;
-
+  overflow: hidden;
   grid-column: 2;
   grid-row: 3;
 }
 
 /* Hide the images by default */
-.mySlides {
+.slide {
   display: none;
-
-  img {
-    width: 40vw;
-    height: 28vw;
-  }
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  width: 40vw;
+  height: 28vw;
 }
 
 /* Caption text */
@@ -110,36 +104,26 @@ article {
   top: 0;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-
 /* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 2.5s;
-  animation-name: fade;
-  animation-duration: 2.5s; 
+.slip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: slide-in 1s both;
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+@keyframes slide-in {
+  0% {
+    transition-timing-function: ease-in;
+    transform: translateX(-100%);
+  }
 }
 
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+.slipOut {
+  animation: slide-out 1s both;
+  transition: gone 4000ms;
+}
+
+.gone {
+  display: none;
 }
