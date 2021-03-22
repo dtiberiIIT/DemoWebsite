@@ -18,7 +18,6 @@ function showSlides() {
     slides[idxToHide].style.display = "none";
     
     if(slideIndex == 1){
-        console.log(slides.length)
         slides[slides.length-1].style.zIndex = "0";
     }
 }

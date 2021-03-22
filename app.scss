@@ -14,8 +14,8 @@ body {
   background-color: #FEEDEB;
 
   display: grid;
-  grid-template-columns: 5% 90% 5%;
-  grid-template-rows: 1em auto auto auto auto auto;
+  grid-template-columns: 5rem auto;
+  grid-template-rows: auto auto auto auto auto auto;
 }
 
 %padding-container {
@@ -28,15 +28,12 @@ body {
   border-image-slice: 1;
 }
 
-%borderA {
-  border: 0.4em solid #F5F5F5;
-}
-
 header {
   @extend %gradient-top-border;
   background-color: #E0E0E0;
-  grid-column: 2;
-  grid-row: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row: 1;
 
   h1 {
     @extend %padding-container;
@@ -44,16 +41,61 @@ header {
     color: #F88277;
     font-size: 2.5em;
     font-weight: bolder;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    button {
-      @extend %padding-container;
-    }
+    text-align: center;
   }
 }
+nav {
+  grid-row: 1/-1;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  button {
+    margin-top: 1em;
+    margin-left: 0.15em;
+    margin-right: 0.15em;
+  }
+}
+ /*Nav Bar Styling*/
+.navbar {
+  position: sticky;
+  background-color: var(--bg-primary);
+  transition: width 600ms ease;
+  overflow: scroll;
+  background-color: #7F627A;
+  width: 5rem;
+  transition: width 200ms ease;
+  z-index: 10;
+}
+
+.navbar:hover {
+  width: 14rem;
+}
+
+.navbar .link_text{
+  display: none;
+}
+
+.navbar:hover .link_text{
+  display: inline;
+}
+
+.navbar .last-child {
+  margin-bottom: 1em;
+}
+
+.navbar .hamburger {
+  margin-bottom: 3em;
+}
+
+/*Hover functionality when hamburger button is clicked. Needed for touch devices.*/
+.active_nav {
+  width: 14rem;
+
+  .link_text {
+    display: inline;
+  }
+}
+
 
 article {
   p {
@@ -61,16 +103,24 @@ article {
   }
 }
 
+#home_article {
+  grid-row: 4;
+  grid-column: 2;
+}
+
+%slide_size_small_screens {
+  width: auto;
+  max-width: 100%;
+  height: 55vw;
+}
+
+
 /* Slideshow container */
 * {box-sizing:border-box}
 .slideshow-container {
-  @extend %borderA;
-  margin-top: 1em;
+  @extend %slide_size_small_screens;
+  float: left;
   margin-bottom: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40vw;
-  height: 28vw;
   position: relative;
   overflow: hidden;
   grid-column: 2;
@@ -80,19 +130,7 @@ article {
 /* Hide the images by default */
 .slide {
   display: none;
-  width: 40vw;
-  height: 28vw;
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+  @extend %slide_size_small_screens;
 }
 
 /* Number text (1/3 etc) */
@@ -119,11 +157,30 @@ article {
   }
 }
 
-.slipOut {
-  animation: slide-out 1s both;
-  transition: gone 4000ms;
-}
+@media screen and (min-width: 600px) {
+  %borderA {
+    border: 0.4em solid #F5F5F5;
+  }
 
-.gone {
-  display: none;
+  .navbar {
+    button {
+      margin-top: 1em;
+      margin-left: 0.25em;
+      margin-right: 0.25em;
+    }
+  }
+
+  %slide_size_large_screens {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40vw;
+  }
+
+  .slideshow-container {
+    @extend %slide_size_large_screens;
+    @extend %borderA;
+    .slide {
+      @extend %slide_size_large_screens;
+    }
+  }
 }

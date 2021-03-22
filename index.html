@@ -15,29 +15,35 @@
     <body>
         <header>
             <h1 id="header">The Adobe Café</h1>
-            <nav>
-                <button class="mdc-button mdc-button--raised">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="material-icons">home</span>
-                    <span class="mdc-button__label">Home</span>
-                </button>
-                <button class="mdc-button mdc-button--raised">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="material-icons">location_on</span>
-                    <span class="mdc-button__label">Visit Us</span>
-                </button>
-                <button class="mdc-button mdc-button--raised">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="material-icons">menu_book</span>
-                    <span class="mdc-button__label">Menu</span>
-                </button>
-                <button class="mdc-button mdc-button--raised">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="material-icons">phone</span>
-                    <span class="mdc-button__label">Call</span>
-                </button>
-            </nav>
         </header>
+
+        <nav class="navbar">
+            <button class="mdc-button mdc-button--raised hamburger" onclick="toggle_nav()">
+                <span class="mdc-button__ripple"></span>
+                <span class="material-icons">dehaze</span>
+                <span class="mdc-button__label link_text"></span>
+            </button>
+            <button class="mdc-button mdc-button--raised">
+                <span class="mdc-button__ripple"></span>
+                <span class="material-icons">home</span>
+                <span class="mdc-button__label link_text"> Home</span>
+            </button>
+            <button class="mdc-button mdc-button--raised">
+                <span class="mdc-button__ripple"></span>
+                <span class="material-icons">menu_book</span>
+                <span class="mdc-button__label link_text"> Menu</span>
+            </button>
+            <button class="mdc-button mdc-button--raised">
+                <span class="mdc-button__ripple"></span>
+                <span class="material-icons">location_on</span>
+                <span class="mdc-button__label link_text"> Visit Us</span>
+            </button>
+            <button class="mdc-button mdc-button--raised last-child">
+                <span class="mdc-button__ripple"></span>
+                <span class="material-icons">phone</span>
+                <span class="mdc-button__label link_text"> Call</span>
+            </button>
+        </nav>
 
         <div class="slideshow-container">
             <img src="res/foodA.jpg" class="slide slip"/>
@@ -45,6 +51,18 @@
             <img src="res/foodC.jpg" class="slide slip"/>
             <img src="res/foodD.jpg" class="slide slip"/>
         </div>
+
+        <article id="home_article">
+            <p>
+                Lorem ipsum dolor sit amet, tollit detracto sapientem an mei, 
+                eos amet eligendi id. Ne mel utamur invidunt vulputate, vim no 
+                choro verterem constituto. Ad quo delicata laboramus accommodare, 
+                et facilis consequat duo. Iisque veritus quo ei, facete euripidis 
+                ea vis. Alterum petentium te sed, dico malis adipisci id nec, fabulas 
+                pertinax his et. Eum ex vide omnes causae, errem utamur antiopam te nam. 
+                Cu pro sumo dicta voluptaria, ut sint appareat vis, ut per labore vivendo singulis.
+            </p>
+        </article>
     </body>
     <script src="slide.js"></script>
 </html>
