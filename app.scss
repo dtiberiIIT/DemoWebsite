@@ -38,7 +38,7 @@ header {
   h1 {
     @extend %padding-container;
     font-family: 'Antic Didone', helvetica, serif;
-    color: #F88277;
+    color: #fb9fa4;
     font-size: 2.5em;
     font-weight: bolder;
     text-align: center;
@@ -142,17 +142,22 @@ article {
   top: 0;
 }
 
-/* Fading animation */
+/* Sliding animation */
 .slip {
   position: absolute;
   top: 0;
   left: 0;
-  animation: slide-in 1s both;
+  animation: slide-in 2s both;
 }
 
 @keyframes slide-in {
   0% {
     transition-timing-function: ease-in;
+    /*Listed multiple times to account for dif browser vendors*/
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
     transform: translateX(-100%);
   }
 }
